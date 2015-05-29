@@ -18,6 +18,8 @@ public class MoneyTest {
     public void testEquality() {
         assertTrue("5 dollars equals 5 dollars", new Dollar(5).equals(new Dollar(5)));
         assertFalse("5 dollars don't equal 6 dollars", new Dollar(5).equals(new Dollar(6)));
+        assertTrue("5 francs equals 5 francs", new Franc(5).equals(new Franc(5)) );
+        assertFalse("5 francs don't equals 6 francs", new Franc(5).equals(new Franc(6)) );
     }
 
     @Test

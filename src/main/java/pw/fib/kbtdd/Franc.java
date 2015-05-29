@@ -1,8 +1,6 @@
 package pw.fib.kbtdd;
 
-public class Franc {
-    private int amount;
-
+public class Franc extends Money {
     public Franc(int amount) {
         this.amount = amount;
     }
@@ -12,15 +10,7 @@ public class Franc {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (!(obj instanceof Franc))
-            return false;
-        Franc other = (Franc) obj;
-        return this.amount == other.amount;
-    }
-
-    @Override
     public String toString() {
-        return "(" + amount + ", dollar)";
+        return "(" + amount + ", franc)";
     }
 }
