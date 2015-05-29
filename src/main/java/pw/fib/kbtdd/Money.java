@@ -8,6 +8,6 @@ public class Money {
         if (!(obj instanceof Money))
             return false;
         Money other = (Money) obj;
-        return this.amount == other.amount;
+        return this.amount == other.amount && this.getClass().equals(other.getClass());
     }
 }
