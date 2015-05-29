@@ -1,12 +1,12 @@
 package pw.fib.kbtdd;
 
 public class Franc extends Money {
-    public Franc(int amount) {
+    protected Franc(int amount) {
         this.amount = amount;
     }
 
-    public Franc times(int multiplier) {
-        return new Franc(amount * multiplier);
+    public Money times(int multiplier) {
+        return franc(amount * multiplier);
     }
 
     @Override

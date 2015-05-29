@@ -1,11 +1,11 @@
 package pw.fib.kbtdd;
 
 public class Dollar extends Money {
-    public Dollar(int amount) {
+    protected Dollar(int amount) {
         this.amount = amount;
     }
 
-    public Dollar times(int multiplier) {
+    public Money times(int multiplier) {
         return new Dollar(amount * multiplier);
     }
 
