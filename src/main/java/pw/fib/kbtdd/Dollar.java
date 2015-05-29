@@ -1,7 +1,7 @@
 package pw.fib.kbtdd;
 
 public class Dollar {
-    public int amount;
+    private int amount;
 
     public Dollar(int amount) {
         this.amount = amount;
@@ -17,5 +17,10 @@ public class Dollar {
             return false;
         Dollar other = (Dollar) obj;
         return this.amount == other.amount;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + amount + ", dollar)";
     }
 }
