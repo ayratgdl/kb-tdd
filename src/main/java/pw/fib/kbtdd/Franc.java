@@ -1,8 +1,8 @@
 package pw.fib.kbtdd;
 
 public class Franc extends Money {
-    protected Franc(int amount) {
-        this.amount = amount;
+    protected Franc(int amount, String currency) {
+        super(amount, currency);
     }
 
     public Money times(int multiplier) {
