@@ -1,6 +1,6 @@
 package pw.fib.kbtdd;
 
-public abstract class Money {
+public class Money {
     protected int amount;
     protected String currency;
 
@@ -17,17 +17,24 @@ public abstract class Money {
         return new Franc(amount, "CHF");
     }
 
-    public abstract Money times(int multiplier);
+    public Money times(int multiplier) {
+        return new Money(amount * multiplier, currency);
+    }
 
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof Money))
             return false;
         Money other = (Money) obj;
-        return this.amount == other.amount && this.getClass().equals(other.getClass());
+        return this.amount == other.amount && this.currency.equals(other.currency);
     }
 
     public String currency() {
         return currency;
+    }
+
+    @Override
+    public String toString() {
+        return amount + " " + currency;
     }
 }
