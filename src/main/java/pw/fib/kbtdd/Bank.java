@@ -2,6 +2,6 @@ package pw.fib.kbtdd;
 
 public class Bank {
     public Money reduce(Expression source, String currency) {
-        return Money.dollar(10);
+        return source.reduce(currency);
     }
 }

@@ -10,7 +10,7 @@ public class Money implements Expression {
     }
 
     public static Money dollar(int amount) {
-        return new Money(amount, "USE");
+        return new Money(amount, "USD");
     }
 
     public static Money franc(int amount) {
@@ -39,6 +39,11 @@ public class Money implements Expression {
     }
 
     public Expression plus(Money addend) {
-        return new Money(this.amount + addend.amount, this.currency);
+        return new Sum(this, addend);
+    }
+
+    @Override
+    public Money reduce(String to) {
+        return this;
     }
 }

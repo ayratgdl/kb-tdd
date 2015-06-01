@@ -23,7 +23,7 @@ public class MoneyTest {
 
     @Test
     public void testCurrency() {
-        assertEquals("USE", Money.dollar(1).currency());
+        assertEquals("USD", Money.dollar(1).currency());
         assertEquals("CHF", Money.franc(1).currency());
     }
 
@@ -34,5 +34,28 @@ public class MoneyTest {
         Bank bank = new Bank();
         Money reduced = bank.reduce(sum, "USD");
         assertEquals(Money.dollar(10), reduced);
+    }
+
+    @Test
+    public void testPlusReturnSum() {
+        Money five = Money.dollar(5);
+        Sum sum = (Sum) five.plus(five);
+        assertEquals(five, sum.augend);
+        assertEquals(five, sum.addend);
+    }
+
+    @Test
+    public void testReduceSum() {
+        Sum sum = new Sum(Money.dollar(3), Money.dollar(4));
+        Bank bank = new Bank();
+        Money result = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(7), result);
+    }
+
+    @Test
+    public void testReduceMoney() {
+        Bank bank = new Bank();
+        Money result = bank.reduce(Money.dollar(1), "USD");
+        assertEquals(Money.dollar(1), result);
     }
 }
